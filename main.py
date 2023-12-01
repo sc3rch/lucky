@@ -4,10 +4,16 @@ with open("mydefaults.ini.txt") as ini_file:
     data = ini_file.read()
 
 lines = data.split("\n")
-key_value_ini = dict()
-# print(len(lines))
+
+number_counter = 0
+letter_counter = 0
+
 for line in lines:
-    if "=" in line:
-        fields = line.split("=")
-        key_value_ini[fields[0]] = fields[1]
-print(key_value_ini)
+    for char in line:
+        if char.isnumeric():
+            number_counter += 1
+        elif char.isalpha():
+            letter_counter +=1
+
+print(number_counter)
+print(letter_counter)
